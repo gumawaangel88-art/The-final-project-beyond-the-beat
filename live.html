@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Live | Beyond The Beat</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            BEYOND<br>
+            <span>THE BEAT</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="music.html">Music</a>
+            <a href="live.html" class="active">Live</a>
+            <a href="idols.html">Idols</a>
+            <a href="contacts.html">Contacts</a>
+        </nav>
+
+        <div class="search">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search..."
+            >
+
+            <button onclick="searchLive()">
+                🔍
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         LIVE PAGE
+    ========================== -->
+
+    <main class="live-page">
+
+        <div class="page-title">
+
+            <h1>Live</h1>
+
+            <p>
+                Experience the music beyond the beat.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             LIVE EVENTS
+        ========================== -->
+
+        <div class="live-grid" id="liveGrid">
+
+
+            <!-- EVENT 1 -->
+
+            <div class="live-card">
+
+                <img
+                    src="image/kpop.webp"
+                    alt="Live Event 1"
+                    class="live-image"
+                >
+
+                <div class="live-info">
+
+                    <h2>Live Concert</h2>
+
+                    <p class="artist">
+                        Beyond The Beat Live
+                    </p>
+
+                    <p class="event-date">
+                        📅 December 15, 2026
+                    </p>
+
+                    <p class="event-location">
+                        📍 Manila, Philippines
+                    </p>
+
+                    <p class="event-description">
+                        Join us for an unforgettable night
+                        filled with music energy and entertainment.
+                        Enjoy live performances from your talented and favorite artists.
+                    </p>
+
+                    <button
+                        class="main-button"
+                        onclick="showEvent('Live Concert')"
+                    >
+                        View Event
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- EVENT 2 -->
+
+            <div class="live-card">
+
+                <img
+                    src="image/festival.webp"
+                    alt="Live Event 2"
+                    class="live-image"
+                >
+
+                <div class="live-info">
+
+                    <h2>Music Festival</h2>
+
+                    <p class="artist">
+                        Beyond The Beat Festival
+                    </p>
+
+                    <p class="event-date">
+                        📅 January 10, 2027
+                    </p>
+
+                    <p class="event-location">
+                        📍 Clark, Pampanga
+                    </p>
+
+                    <p class="event-description">
+                        Enjoy live performances from
+                        different artists and musicians.
+                    </p>
+
+                    <button
+                        class="main-button"
+                        onclick="showEvent('Music Festival')"
+                    >
+                        View Event
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- EVENT 3 -->
+
+            <div class="live-card">
+
+                <img
+                    src="image/acoustic night.webp"
+                    alt="Live Event 3"
+                    class="live-image"
+                >
+
+                <div class="live-info">
+
+                    <h2>Acoustic Night</h2>
+
+                    <p class="artist">
+                        Acoustic Sessions
+                    </p>
+
+                    <p class="event-date">
+                        📅 February 5, 2027
+                    </p>
+
+                    <p class="event-location">
+                        📍 Angeles City, Pampanga
+                    </p>
+
+                    <p class="event-description">
+                        Relax and enjoy an evening of
+                        acoustic performances.
+                    </p>
+
+                    <button
+                        class="main-button"
+                        onclick="showEvent('Acoustic Night')"
+                    >
+                        View Event
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- EVENT 4 -->
+
+            <div class="live-card">
+
+                <img
+                    src="image/kpop idol.webp"
+                    alt="Live Event 4"
+                    class="live-image"
+                >
+
+                <div class="live-info">
+
+                    <h2>Idol Live</h2>
+
+                    <p class="artist">
+                        Beyond The Beat Idols
+                    </p>
+
+                    <p class="event-date">
+                        📅 March 20, 2027
+                    </p>
+
+                    <p class="event-location">
+                        📍 Quezon City, Philippines
+                    </p>
+
+                    <p class="event-description">
+                        Watch your favorite idols perform
+                        their latest songs live.
+                    </p>
+
+                    <button
+                        class="main-button"
+                        onclick="showEvent('Idol Live')"
+                    >
+                        View Event
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h3>Beyond The Beat</h3>
+
+        <p>
+            Music • Live • Idols • Entertainment
+        </p>
+
+        <p>
+            © 2026 Beyond The Beat
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Idols | Beyond The Beat</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        BEYOND<br>
+        <span>THE BEAT</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="music.html">Music</a>
+        <a href="live.html">Live</a>
+        <a href="idols.html" class="active">Idols</a>
+        <a href="contacts.html">Contacts</a>
+    </nav>
+
+    <div class="search">
+        <input
+            type="text"
+            id="idolSearchInput"
+            placeholder="Search idols..."
+            onkeyup="searchIdols()"
+        >
+        <button onclick="searchIdols()">🔍</button>
+    </div>
+
+</header>
+
+
+<main class="idols-page">
+
+    <div class="page-title">
+        <h1>Idols</h1>
+        <p>Meet the artists who inspire us beyond the beat.</p>
+    </div>
+
+
+    <div class="idol-grid" id="idolGrid">
+
+        <!-- Idol 1 -->
+        <div class="idol-card">
+
+            <img
+                src="image/Kim Seung-min.jpg"
+                alt="Idol 1"
+                class="idol-image"
+            >
+
+            <div class="idol-info">
+
+                <h2>Kim Seung-min</h2>
+
+                <p class="idol-role">
+                    Singer • MC
+                </p>
+
+                <p>
+                    South Korean singer and MC, 
+                    best known as the main vocalist of the boy group 
+                    Stray Kids under JYP Entertainment.
+                    
+                </p>
+
+                <button
+                    class="main-button"
+                    onclick="showIdol('Idol Name 1')"
+                >
+                    View Idol
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Idol 2 -->
+        <div class="idol-card">
+
+            <img
+                src="image/Daniela Avanzini.jpg"
+                alt="Idol 2"
+                class="idol-image"
+            >
+
+            <div class="idol-info">
+
+                <h2>Daniela Avanzini</h2>
+
+                <p class="idol-role">
+                    Singer • Dancer
+                </p>
+
+                <p>
+                    An American singer and dancer best known as
+                    a member of the global girl group Katseye, 
+                    formed via HYBE and Geffen Records’ 2023 reality show
+                  
+                </p>
+
+                <button
+                    class="main-button"
+                    onclick="showIdol('Idol Name 2')"
+                >
+                    View Idol
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Idol 3 -->
+        <div class="idol-card">
+
+            <img
+                src="image/IU.jpg"
+                alt="Idol 3"
+                class="idol-image"
+            >
+
+            <div class="idol-info">
+
+                <h2>IU</h2>
+
+                <p class="idol-role">
+                    Vocalist • Performer
+                </p>
+
+                <p>
+                    Lee Ji-eun, known by her stage name IU, 
+                    is a South Korean singer-songwriter, actress,
+                    and philanthropist. Debuting at age 15 with the EP Lost and Found (2008), 
+                    she rose to fame with the hit Good Day (2010), ranked by Billboard as the top 
+                    K-pop song of the 2010s. 
+                </p>
+
+                <button
+                    class="main-button"
+                    onclick="showIdol('Idol Name 3')"
+                >
+                    View Idol
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Idol 4 -->
+        <div class="idol-card">
+
+            <img
+                src="image/Jung Kook.jpg"
+                alt="Idol 4"
+                class="idol-image"
+            >
+
+            <div class="idol-info">
+
+                <h2>Jung Kook</h2>
+
+                <p class="idol-role">
+                    Singer • Dancer
+                </p>
+
+                <p>
+                    Jeon Jung-kook, known professionally as Jung Kook, 
+                    is a South Korean singer and songwriter who rose to prominence 
+                    as the youngest member and main vocalist of BTS.
+                </p>
+
+                <button
+                    class="main-button"
+                    onclick="showIdol('Idol Name 4')"
+                >
+                    View Idol
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Idol 5 -->
+        <div class="idol-card">
+
+            <img
+                src="image/Jeongyeon.jpg"
+                alt="Idol 5"
+                class="idol-image"
+            >
+
+            <div class="idol-info">
+
+                <h2>Jeongyeon</h2>
+
+                <p class="idol-role">
+                    Artist • Performer
+                </p>
+
+                <p>
+                    Yu Jeong-yeon (Korean: 유정연; born 1 November 1996), 
+                    known mononymously as Jeongyeon, is a South Korean singer. 
+                    She is a member of Twice, a South Korean girl group formed 
+                    by JYP Entertainment.
+                </p>
+
+                <button
+                    class="main-button"
+                    onclick="showIdol('Idol Name 5')"
+                >
+                    View Idol
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Idol 6 -->
+        <div class="idol-card">
+
+            <img
+                src="image/Wonhee.webp"
+                alt="Idol 6"
+                class="idol-image"
+            >
+
+            <div class="idol-info">
+
+                <h2>Wonhee</h2>
+
+                <p class="idol-role">
+                    Singer • Performer
+                </p>
+
+                <p>
+                    Lee Won-hee (Korean: 이원희; born June 26, 2007),
+                    known mononymously as Wonhee, is a South Korean singer. 
+                    She is a member of the girl group Illit under Belift Lab and Hybe, 
+                    formed through the 2023 survival show R U Next?. 
+                </p>
+
+                <button
+                    class="main-button"
+                    onclick="showIdol('Idol Name 6')"
+                >
+                    View Idol
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <h3>Beyond The Beat</h3>
+
+    <p>
+        Music • Live • Idols • Entertainment
+    </p>
+
+    <p>
+        © 2026 Beyond The Beat
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

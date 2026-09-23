@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | Beyond The Beat</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        BEYOND<br>
+        <span>THE BEAT</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="music.html">Music</a>
+        <a href="live.html">Live</a>
+        <a href="idols.html">Idols</a>
+        <a href="contacts.html" class="active">Contact</a>
+    </nav>
+
+    <div class="search">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search..."
+        >
+        <button onclick="searchWebsite()">🔍</button>
+    </div>
+
+</header>
+
+
+<main class="contact-page">
+
+    <div class="page-title">
+        <h1>Contact</h1>
+        <p>We'd love to hear from you.</p>
+    </div>
+
+
+    <div class="contact-container">
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+
+            <h2>Get In Touch</h2>
+
+            <p>
+                Have a question, suggestion, or simply want to
+                talk about music? Send us a message!
+            </p>
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">📧</div>
+
+                <div>
+                    <h3>Email</h3>
+                    <p>hello@beyondthebeat.com</p>
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">📱</div>
+
+                <div>
+                    <h3>Phone</h3>
+                    <p>+63 912 345 6789</p>
+                </div>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <div class="contact-icon">📍</div>
+
+                <div>
+                    <h3>Location</h3>
+                    <p>Philippines</p>
+                </div>
+
+            </div>
+
+
+            <div class="social-links">
+
+                <h3>Follow Us</h3>
+
+                <a href="#" onclick="socialMessage('Facebook')">
+                    Facebook
+                </a>
+
+                <a href="#" onclick="socialMessage('Instagram')">
+                    Instagram
+                </a>
+
+                <a href="#" onclick="socialMessage('TikTok')">
+                    TikTok
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+
+            <h2>Send Us A Message</h2>
+
+            <form onsubmit="sendMessage(event)">
+
+                <label for="name">Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label for="subject">Subject</label>
+
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Enter subject"
+                    required
+                >
+
+
+                <label for="message">Message</label>
+
+                <textarea
+                    id="message"
+                    rows="6"
+                    placeholder="Write your message..."
+                    required
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="main-button"
+                >
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <h3>Beyond The Beat</h3>
+
+    <p>
+        Music • Live • Idols • Entertainment
+    </p>
+
+    <p>
+        © 2026 Beyond The Beat
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

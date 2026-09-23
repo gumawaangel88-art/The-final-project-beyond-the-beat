@@ -1,32 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Final Project</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Beyond The Beat</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header>
-    <h1>My Final Project</h1>
-    <p>Group members: (add your names here)</p>
-  </header>
 
-  <main>
-    <section>
-      <h2>Welcome</h2>
-      <p>
-        This is the starter page for your final project. Replace this content
-        with your own site. When you push to your repository and enable GitHub
-        Pages, this page goes live on the internet.
-      </p>
+    <!-- NAVIGATION -->
+    <header class="navbar">
+
+        <div class="logo">
+            BEYOND<br>
+            <span>THE BEAT</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="music.html">Music</a>
+            <a href="live.html">Live</a>
+            <a href="idols.html">Idols</a>
+            <a href="contacts.html">Contacts</a>
+        </nav>
+
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="searchWebsite()"></button>
+        </div>
+
+    </header>
+
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+
+        <div class="hero-image">
+            <div class="image-placeholder">
+            </div>
+        </div>
+
+        <div class="hero-text">
+
+            <h1>Welcome To<br>Beyond The Beat!</h1>
+
+            <p>
+                Discover the latest music, live performances,
+                popular idols and everything happening beyond the beat.
+            </p>
+
+            <button class="main-button" onclick="learnMore()">
+                Explore Now
+            </button>
+
+        </div>
+
     </section>
-  </main>
 
-  <footer>
-    <p>Built for the finals project.</p>
-  </footer>
 
-  <script src="script.js"></script>
+    <!-- MUSIC -->
+    <section id="music" class="section">
+
+        <h2>Music</h2>
+
+        <p>
+            Explore new songs, artists, albums and the latest
+            music trends.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-image">🎧</div>
+                <h3>Latest Hits</h3>
+                <p>Discover the newest songs.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-image">🎵</div>
+                <h3>Top Songs</h3>
+                <p>Listen to popular tracks.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-image">🎸</div>
+                <h3>Artists</h3>
+                <p>Meet your favorite artists.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LIVE -->
+    <section id="live" class="section">
+
+        <h2>Live</h2>
+
+        <p>
+            Stay updated with concerts, performances and live events.
+        </p>
+
+        <div class="event">
+            <h3>Live Performance</h3>
+            <p>Check out upcoming performances and events.</p>
+            <button class="main-button">View Events</button>
+        </div>
+
+    </section>
+
+
+    <!-- IDOLS -->
+    <section id="idols" class="section">
+
+        <h2>Idols</h2>
+
+        <p>
+            Learn more about popular idols and performers.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-image">⭐</div>
+                <h3>Popular Idol</h3>
+                <p>Artist information goes here.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-image">🌟</div>
+                <h3>Rising Star</h3>
+                <p>Discover new talents.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="section">
+
+        <h2>Contacts</h2>
+
+        <p>Have questions? Send us a message.</p>
+
+        <form id="contactsForm">
+
+            <input type="text" placeholder="Your Name" required>
+
+            <input type="email" placeholder="Your Email" required>
+
+            <textarea placeholder="Your Message" required></textarea>
+
+            <button class="main-button" type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>Beyond The Beat</h3>
+
+        <p>
+            Music • Live • Idols • Entertainment
+        </p>
+
+        <p>© 2026 Beyond The Beat</p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
 </body>
 </html>

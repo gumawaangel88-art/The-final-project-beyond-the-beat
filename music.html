@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Music | Beyond The Beat</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            BEYOND<br>
+            <span>THE BEAT</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="music.html" class="active">Music</a>
+            <a href="live.html">Live</a>
+            <a href="idols.html">Idols</a>
+            <a href="contacts.html">Contacts</a>
+        </nav>
+
+        <div class="search">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search..."
+            >
+
+            <button onclick="searchMusic()">
+                🔍
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MUSIC PAGE
+    ========================== -->
+
+    <main class="music-page">
+
+        <div class="page-title">
+
+            <h1>Music</h1>
+
+            <p>
+                Discover and listen to your favorite songs.
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             SONG LIST
+        ========================== -->
+
+        <div class="music-grid" id="musicGrid">
+
+
+            <!-- SONG 1 -->
+
+            <div class="song-card">
+
+                <img
+                    src="image/bts.webp"
+                    alt="Song1"
+                    class="song-image"
+                >
+
+                <div class="song-details">
+
+                    <h2>방탄소년단 'Dynamite' </h2>
+
+                    <p>BTS</p>
+
+                    <audio controls>
+                        <source
+                            src="c:\Users\theag\Music\music\BTS (방탄소년단) 'Dynamite' Official MV.mp3"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support audio.
+                    </audio>
+
+                </div>
+
+            </div>
+
+
+            <!-- SONG 2 -->
+
+            <div class="song-card">
+
+                <img
+                    src="image/enhypen.webp"
+                    alt="Song 2"
+                    class="song-image"
+                >
+
+                <div class="song-details">
+
+                    <h2>엔하이픈 'Bite Me'</h2>
+
+                    <p>ENHYPEN</p>
+
+                    <audio controls>
+                        <source
+                            src="c:\Users\theag\Music\music\ENHYPEN (엔하이픈) 'Bite Me' Official MV.mp3"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support audio.
+                    </audio>
+
+                </div>
+
+            </div>
+
+
+            <!-- SONG 3 -->
+
+            <div class="song-card">
+
+                <img
+                    src="image/illit.webp"
+                    alt="Song 3"
+                    class="song-image"
+                >
+
+                <div class="song-details">
+
+                    <h2>아일릿 'jellyous</h2>
+
+                    <p>ILLIT</p>
+
+                    <audio controls>
+                        <source
+                            src="c:\Users\theag\Music\music\ILLIT (아일릿) 'jellyous Official MV.mp3"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support audio.
+                    </audio>
+
+                </div>
+
+            </div>
+
+
+            <!-- SONG 4 -->
+
+            <div class="song-card">
+
+                <img
+                    src="image/ive.jpg"
+                    alt="Song 4"
+                    class="song-image"
+                >
+
+                <div class="song-details">
+
+                    <h2>아이브 'I AM'</h2>
+
+                    <p>IVE</p>
+
+                    <audio controls>
+                        <source
+                            src="c:\Users\theag\Music\music\IVE 아이브 'I AM' MV.mp3"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support audio.
+                    </audio>
+
+                </div>
+
+            </div>
+
+
+            <!-- SONG 5 -->
+
+            <div class="song-card">
+
+                <img
+                    src="image/Newjeans.webp"
+                    alt="Song 5"
+                    class="song-image"
+                >
+
+                <div class="song-details">
+
+                    <h2>뉴진스 'OMG'</h2>
+
+                    <p>NewJeans</p>
+
+                    <audio controls>
+                        <source
+                            src="c:\Users\theag\Music\music\NewJeans (뉴진스) 'OMG' Official MV (Performance ver.1).mp3"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support audio.
+                    </audio>
+
+                </div>
+
+            </div>
+
+
+            <!-- SONG 6 -->
+
+            <div class="song-card">
+
+                <img
+                    src="image/Seventeen.jpg"
+                    alt="Song 6"
+                    class="song-image"
+                >
+
+                <div class="song-details">
+
+                    <h2>세븐틴 '손오공'</h2>
+
+                    <p>SEVENTEEN</p>
+
+                    <audio controls>
+                        <source
+                            src="c:\Users\theag\Music\music\SEVENTEEN (세븐틴) '손오공' Official MV.mp3"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support audio.
+                    </audio>
+
+                </div>
+
+            </div>
+
+
+            <!-- SONG 7 -->
+
+            <div class="song-card">
+
+                <img
+                    src="image/Still with you.webp"
+                    alt="Song 7"
+                    class="song-image"
+                >
+
+                <div class="song-details">
+
+                    <h2>Still With You</h2>
+
+                    <p>Jung Kook</p>
+
+                    <audio controls>
+                        <source
+                            src="c:\Users\theag\Music\music\Still With You.mp3"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support audio.
+                    </audio>
+
+                </div>
+
+            </div>
+
+
+            <!-- SONG 8 -->
+
+            <div class="song-card">
+
+                <img
+                    src="image/stray kids.webp"
+                    alt="Song 8"
+                    class="song-image"
+                >
+
+                <div class="song-details">
+
+                    <h2>神메뉴 (God's Menu)</h2>
+
+                    <p>Stray Kids</p>
+
+                    <audio controls>
+                        <source
+                            src="c:\Users\theag\Music\music\Stray Kids 神메뉴(God's Menu) MV.mp3"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support audio.
+                    </audio>
+
+                </div>
+
+            </div>
+
+
+            <!-- SONG 9 -->
+
+            <div class="song-card">
+
+                <img
+                    src="image/Twice this is for.jpg"
+                    alt="Song 9"
+                    class="song-image"
+                >
+
+                <div class="song-details">
+
+                    <h2>THIS IS FOR</h2>
+
+                    <p>TWICE</p>
+
+                    <audio controls>
+                        <source
+                            src="c:\Users\theag\Music\music\TWICE THIS IS FOR MV.mp3"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support audio.
+                    </audio>
+
+                </div>
+
+            </div>
+
+
+            <!-- SONG 10 -->
+
+            <div class="song-card">
+
+                <img
+                    src="image/txt.webp"
+                    alt="Song 10"
+                    class="song-image"
+                >
+
+                <div class="song-details">
+
+                    <h2>투모로우바이투게더 'Deja Vu'</h2>
+
+                    <p>TOMORROW X TOGETHER</p>
+
+                    <audio controls>
+                        <source
+                            src="c:\Users\theag\Music\music\TXT (투모로우바이투게더) 'Deja Vu' Official MV.mp3"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support audio.
+                    </audio>
+
+                </div>
+
+            </div>
+
+
+            <!-- SONG 11 -->
+
+            <div class="song-card">
+
+                <img
+                    src="image/unis.webp"
+                    alt="Song 11"
+                    class="song-image"
+                >
+
+                <div class="song-details">
+
+                    <h2>SWICY</h2>
+
+                    <p>UNIS (유니스)</p>
+
+                    <audio controls>
+                        <source
+                            src="c:\Users\theag\Music\music\UNIS(유니스) SWICY Official MV.mp3"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support audio.
+                    </audio>
+
+                </div>
+
+            </div>
+
+
+            <!-- SONG 12 -->
+
+            <div class="song-card">
+
+                <img
+                    src="image/stars and randrops.webp"
+                    alt="Song 12"
+                    class="song-image"
+                >
+
+                <div class="song-details">
+
+                    <h2>Stars and Raindrops</h2>
+
+                    <p>Seungmin</p>
+
+                    <audio controls>
+                        <source
+                            src="c:\Users\theag\Music\music\내려요 (승민) Stars and Raindrops (Seungmin).mp3"
+                            type="audio/mpeg"
+                        >
+                        Your browser does not support audio.
+                    </audio>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h3>Beyond The Beat</h3>
+
+        <p>
+            Music • Live • Idols • Entertainment
+        </p>
+
+        <p>
+            © 2026 Beyond The Beat
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
