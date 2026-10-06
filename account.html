@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Dashboard | Beyond The Beat</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Ensures smooth tab switching and fixes potential layout glitches */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active-tab {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+        <div class="logo">
+            BEYOND<br>
+            <span>THE BEAT</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="music.html">Music</a>
+            <a href="live.html">Live</a>
+            <a href="idols.html">Idols</a>
+            <a href="contacts.html">Contacts</a>
+            <a href="account.html" class="active">Account</a>
+        </nav>
+
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="searchWebsite()">🔍</button>
+        </div>
+    </header>
+
+    <!-- ACCOUNT DASHBOARD CONTENT -->
+    <main class="dashboard-page">
+        
+        <!-- Top Profile Intro -->
+        <div class="dashboard-top">
+            <div class="dashboard-avatar">🐵</div>
+            <div class="dashboard-intro">
+                <p>Hello <strong>mulan</strong> (not mulan? <a href="#" class="logout-link">Log out</a>)</p>
+                <p class="dashboard-subtext">From your account dashboard you can manage your preferences and details.</p>
+            </div>
+        </div>
+
+        <!-- Dashboard Layout Grid -->
+        <div class="dashboard-grid">
+            
+            <!-- Sidebar Navigation Menu -->
+            <aside class="dashboard-menu">
+                <a href="#" class="menu-item" onclick="switchTab(event, 'dashboard')">🏠 Dashboard</a>
+                <a href="#" class="menu-item" onclick="switchTab(event, 'subscriptions')">📺 Subscriptions</a>
+                <a href="#" class="menu-item" onclick="switchTab(event, 'orders')">🛒 Orders</a>
+                <a href="#" class="menu-item" onclick="switchTab(event, 'billing')">💳 Billing Address</a>
+                <a href="#" class="menu-item active" onclick="switchTab(event, 'details')">👤 Account Details</a>
+                <a href="#" class="menu-item" onclick="switchTab(event, 'password')">🔑 Change Password</a>
+                <a href="#" class="menu-item logout" onclick="alert('Logged out successfully!')">🚪 Logout</a>
+            </aside>
+
+            <!-- Main Panel Content area -->
+            <section class="dashboard-content-panel">
+                
+                <!-- TAB: ACCOUNT DETAILS (Group & Solo kept together in one place, but separate fields) -->
+                <div id="details" class="panel-box tab-content active-tab">
+                    <h2>Account Details</h2>
+                    <p class="panel-desc">Update your profile info and personal music preferences below.</p>
+                    
+                    <form class="account-form" onsubmit="saveAccount(event)">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" value="mulan" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" value="mulan@example.com" required>
+                        </div>
+
+                        <!-- MUSIC PREFERENCES CONTAINER (Both separate fields, side-by-side or stacked in one place) -->
+                        <div style="background: rgba(13, 7, 24, 0.5); border: 1px solid #2a1a4a; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+                            <h3 style="font-size: 16px; margin-bottom: 15px; color: #a855f7;">🎵 Music Preferences</h3>
+                            
+                            <div class="form-group" style="margin-bottom: 15px;">
+                                <label for="fav-group">Favorite Group</label>
+                                <input type="text" id="fav-group" value="BTS & Stray Kids">
+                            </div>
+
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="fav-idol">Favorite Solo Idol</label>
+                                <input type="text" id="fav-idol" value="IU">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bio">Bio / Favorite Genre</label>
+                            <input type="text" id="bio" value="K-Pop & Indie Music Lover">
+                        </div>
+
+                        <button type="submit" class="save-btn">Save Changes</button>
+                    </form>
+                </div>
+
+                <!-- TAB: DASHBOARD OVERVIEW -->
+                <div id="dashboard" class="panel-box tab-content">
+                    <h2>Dashboard Overview</h2>
+                    <p class="panel-desc">Welcome back, mulan! Here is a summary of your activity on Beyond The Beat.</p>
+                    <p style="color: #cbd5e1; font-size: 14px;">You have your favorite groups and soloists saved and active access to live streams.</p>
+                </div>
+
+                <!-- TAB: SUBSCRIPTIONS -->
+                <div id="subscriptions" class="panel-box tab-content">
+                    <h2>My Subscriptions</h2>
+                    <p class="panel-desc">Manage your VIP passes and channel memberships.</p>
+                    <p style="color: #cbd5e1; font-size: 14px;">Status: <span style="color: #a855f7; font-weight: bold;">Active VIP Fan</span></p>
+                </div>
+
+                <!-- TAB: ORDERS -->
+                <div id="orders" class="panel-box tab-content">
+                    <h2>Orders History</h2>
+                    <p class="panel-desc">View your previous merchandise and concert ticket purchases.</p>
+                    <p style="color: #b3b3b3; font-size: 14px;">No recent orders found.</p>
+                </div>
+
+                <!-- TAB: BILLING -->
+                <div id="billing" class="panel-box tab-content">
+                    <h2>Billing Address</h2>
+                    <p class="panel-desc">Manage your payment methods and delivery addresses.</p>
+                    <button class="save-btn" style="width: auto; padding: 10px 20px;">Add New Address</button>
+                </div>
+
+                <!-- TAB: CHANGE PASSWORD -->
+                <div id="password" class="panel-box tab-content">
+                    <h2>Change Password</h2>
+                    <p class="panel-desc">Ensure your account is secure by updating your password.</p>
+                    <form class="account-form" onsubmit="saveAccount(event)">
+                        <div class="form-group">
+                            <label>Current Password</label>
+                            <input type="password" placeholder="••••••••">
+                        </div>
+                        <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password" placeholder="••••••••">
+                        </div>
+                        <button type="submit" class="save-btn">Update Password</button>
+                    </form>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>Beyond The Beat</h3>
+        <p>Music • Live • Idols • Entertainment</p>
+        <p>© 2026 Beyond The Beat</p>
+    </footer>
+
+    <!-- Tab Switcher Script -->
+    <script>
+        function switchTab(event, tabId) {
+            event.preventDefault();
+
+            // Hide all tab contents
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
+
+            // Show selected tab content
+            const targetTab = document.getElementById(tabId);
+            if (targetTab) {
+                targetTab.classList.add('active-tab');
+            }
+
+            // Remove active class from all menu items
+            const menuItems = document.querySelectorAll('.dashboard-menu .menu-item');
+            menuItems.forEach(item => item.classList.remove('active'));
+
+            // Add active class to clicked menu item
+            event.currentTarget.classList.add('active');
+        }
+
+        function saveAccount(event) {
+            event.preventDefault();
+            alert('Changes saved successfully!');
+        }
+    </script>
+</body>
+</html>

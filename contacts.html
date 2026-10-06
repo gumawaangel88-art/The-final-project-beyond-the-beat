@@ -1,201 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Contact | Beyond The Beat</title>
-
+    <title>Contacts | Beyond 
+        The Beat</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header class="navbar">
+    <!-- NAVIGATION -->
+    <header class="navbar">
+        <div class="logo">
+            BEYOND<br>
+            <span>THE BEAT</span>
+        </div>
 
-    <div class="logo">
-        BEYOND<br>
-        <span>THE BEAT</span>
-    </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="music.html">Music</a>
+            <a href="live.html">Live</a>
+            <a href="idols.html">Idols</a>
+            <a href="contacts.html" class="active">Contacts</a>
+            <a href="account.html">Account</a>
+        </nav>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="music.html">Music</a>
-        <a href="live.html">Live</a>
-        <a href="idols.html">Idols</a>
-        <a href="contacts.html" class="active">Contact</a>
-    </nav>
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="searchWebsite()">🔍</button>
+        </div>
+    </header>
 
-    <div class="search">
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search..."
-        >
-        <button onclick="searchWebsite()">🔍</button>
-    </div>
-
-</header>
-
-
-<main class="contact-page">
-
+    <!-- CONTACTS PAGE CONTENT -->
+     <main class="Contacts">
     <div class="page-title">
-        <h1>Contact</h1>
-        <p>We'd love to hear from you.</p>
+        <h1>Contacts </h1>
     </div>
 
+        <div class="contacts-grid">
 
-    <div class="contact-container">
-
-        <!-- Contact Information -->
-        <div class="contact-info">
-
-            <h2>Get In Touch</h2>
-
-            <p>
-                Have a question, suggestion, or simply want to
-                talk about music? Send us a message!
-            </p>
-
-
-            <div class="contact-item">
-
-                <div class="contact-icon">📧</div>
-
-                <div>
-                    <h3>Email</h3>
-                    <p>hello@beyondthebeat.com</p>
+            <!-- CONTACT 1: BTS -->
+            <div class="contact-profile-card">
+                <img src="image/bts.webp" alt="BTS" class="contact-profile-image">
+                <div class="contact-profile-info">
+                    <h2>BTS</h2>
+                    <p class="role">방탄소년단</p>
+                    <p class="bio">South Korean boy band formed in 2013 under Big Hit Music.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/bts.bighitofficial" target="_blank" class="social-btn">Instagram</a>
+                        <a href="https://www.youtube.com/@BTS" target="_blank" class="social-btn">YouTube</a>
+                        <a href="https://twitter.com/BTS_twt" target="_blank" class="social-btn">Twitter</a>
+                    </div>
                 </div>
-
             </div>
 
-
-            <div class="contact-item">
-
-                <div class="contact-icon">📱</div>
-
-                <div>
-                    <h3>Phone</h3>
-                    <p>+63 912 345 6789</p>
+            <!-- CONTACT 2: ENHYPEN -->
+            <div class="contact-profile-card">
+                <img src="image/enhypen.webp" alt="ENHYPEN" class="contact-profile-image">
+                <div class="contact-profile-info">
+                    <h2>ENHYPEN</h2>
+                    <p class="role">엔하이픈</p>
+                    <p class="bio">South Korean boy band formed by Belift Lab through the 2020 survival show I-Land.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/enhypen" target="_blank" class="social-btn">Instagram</a>
+                        <a href="https://www.youtube.com/@ENHYPENOFFICIAL" target="_blank" class="social-btn">YouTube</a>
+                        <a href="https://twitter.com/ENHYPEN" target="_blank" class="social-btn">Twitter</a>
+                    </div>
                 </div>
-
             </div>
 
-
-            <div class="contact-item">
-
-                <div class="contact-icon">📍</div>
-
-                <div>
-                    <h3>Location</h3>
-                    <p>Philippines</p>
+            <!-- CONTACT 3: NewJeans -->
+            <div class="contact-profile-card">
+                <img src="image/Newjeans.webp" alt="NewJeans" class="contact-profile-image">
+                <div class="contact-profile-info">
+                    <h2>NewJeans</h2>
+                    <p class="role">뉴진스</p>
+                    <p class="bio">South Korean girl group formed by ADOR, known for their refreshing 90s-inspired sound.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/newjeans_official" target="_blank" class="social-btn">Instagram</a>
+                        <a href="https://www.youtube.com/@NewJeans_official" target="_blank" class="social-btn">YouTube</a>
+                        <a href="https://twitter.com/NewJeans_ADOR" target="_blank" class="social-btn">Twitter</a>
+                    </div>
                 </div>
-
             </div>
 
+            <!-- CONTACT 4: UNIS -->
+            <div class="contact-profile-card">
+                <img src="image/unis.webp" alt="UNIS" class="contact-profile-image">
+                <div class="contact-profile-info">
+                    <h2>UNIS</h2>
+                    <p class="role">유니스</p>
+                    <p class="bio">Multinational girl group formed through the reality survival show Universe Ticket.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/unis_offcl" target="_blank" class="social-btn">Instagram</a>
+                        <a href="https://www.youtube.com/@UNIS_offcl" target="_blank" class="social-btn">YouTube</a>
+                        <a href="https://twitter.com/UNIS_offcl" target="_blank" class="social-btn">Twitter</a>
+                    </div>
+                </div>
+            </div>
 
-            <div class="social-links">
+            <!-- CONTACT 5: Stray Kids -->
+            <div class="contact-profile-card">
+                <img src="image/stray kids.webp" alt="Stray Kids" class="contact-profile-image">
+                <div class="contact-profile-info">
+                    <h2>Stray Kids</h2>
+                    <p class="role">스트레이 키즈</p>
+                    <p class="bio">South Korean boy band formed by JYP Entertainment through the 2017 reality show.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/realstraykids" target="_blank" class="social-btn">Instagram</a>
+                        <a href="https://www.youtube.com/@StrayKids" target="_blank" class="social-btn">YouTube</a>
+                        <a href="https://twitter.com/Stray_Kids" target="_blank" class="social-btn">Twitter</a>
+                    </div>
+                </div>
+            </div>
 
-                <h3>Follow Us</h3>
-
-                <a href="#" onclick="socialMessage('Facebook')">
-                    Facebook
-                </a>
-
-                <a href="#" onclick="socialMessage('Instagram')">
-                    Instagram
-                </a>
-
-                <a href="#" onclick="socialMessage('TikTok')">
-                    TikTok
-                </a>
-
+            <!-- CONTACT 6: TWICE -->
+            <div class="contact-profile-card">
+                <img src="image/Twice this is for.jpg" alt="TWICE" class="contact-profile-image">
+                <div class="contact-profile-info">
+                    <h2>TWICE</h2>
+                    <p class="role">트와이스</p>
+                    <p class="bio">South Korean girl group formed by JYP Entertainment through the 2015 show Sixteen.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/twicetagram" target="_blank" class="social-btn">Instagram</a>
+                        <a href="https://www.youtube.com/@TWICE" target="_blank" class="social-btn">YouTube</a>
+                        <a href="https://twitter.com/JYPETWICE" target="_blank" class="social-btn">Twitter</a>
+                    </div>
+                </div>
             </div>
 
         </div>
+    </main>
 
+    <!-- FOOTER -->
+    <footer>
+        <h3>Beyond The Beat</h3>
+        <p>Music • Live • Idols • Entertainment</p>
+        <p>© 2026 Beyond The Beat</p>
+    </footer>
 
-        <!-- Contact Form -->
-        <div class="contact-form">
-
-            <h2>Send Us A Message</h2>
-
-            <form onsubmit="sendMessage(event)">
-
-                <label for="name">Name</label>
-
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Enter your name"
-                    required
-                >
-
-
-                <label for="email">Email</label>
-
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter your email"
-                    required
-                >
-
-
-                <label for="subject">Subject</label>
-
-                <input
-                    type="text"
-                    id="subject"
-                    placeholder="Enter subject"
-                    required
-                >
-
-
-                <label for="message">Message</label>
-
-                <textarea
-                    id="message"
-                    rows="6"
-                    placeholder="Write your message..."
-                    required
-                ></textarea>
-
-
-                <button
-                    type="submit"
-                    class="main-button"
-                >
-                    Send Message
-                </button>
-
-            </form>
-
-        </div>
-
-    </div>
-
-</main>
-
-
-<footer>
-
-    <h3>Beyond The Beat</h3>
-
-    <p>
-        Music • Live • Idols • Entertainment
-    </p>
-
-    <p>
-        © 2026 Beyond The Beat
-    </p>
-
-</footer>
-
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>

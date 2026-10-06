@@ -3,16 +3,430 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Idols | Beyond The Beat</title>
+    <style>
+        /* CSS Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        body {
+            background-color: #0c0916;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #120d22;
+            border-bottom: 1px solid #231b3b;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.1rem;
+            line-height: 1.1;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: #9d4edd;
+        }
+
+        .navbar nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .navbar nav a {
+            text-decoration: none;
+            color: #b8b5cc;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar nav a:hover, .navbar nav a.active {
+            background-color: #2b1d4d;
+            color: #ffffff;
+        }
+
+        .add-idol-nav-btn {
+            background-color: #7b2cbf;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .add-idol-nav-btn:hover {
+            background-color: #9d4edd;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            background-color: #1c1535;
+            border: 1px solid #33265c;
+            border-radius: 20px;
+            padding: 5px 15px;
+            width: 230px;
+        }
+
+        .search input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .search input::placeholder {
+            color: #8c85ad;
+        }
+
+        .search button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        /* Main Content */
+        .idols-page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+            width: 100%;
+        }
+
+        .page-title {
+            margin-bottom: 30px;
+        }
+
+        .page-title h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        .page-title p {
+            color: #9e95c4;
+            font-size: 1rem;
+        }
+
+        /* Idol Grid */
+        .idol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .idol-card {
+            background-color: #161129;
+            border: 1px solid #281e4a;
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .idol-card:hover {
+            transform: translateY(-5px);
+            border-color: #7b2cbf;
+        }
+
+        .idol-image {
+            width: 130px;
+            object-fit: cover;
+        }
+
+        .idol-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+        }
+
+        .idol-info h2 {
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+
+        .idol-role {
+            color: #b57edc;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .idol-info p:not(.idol-role) {
+            font-size: 0.82rem;
+            color: #b0a8d1;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        /* Buttons */
+        .main-button {
+            background-color: #7b2cbf;
+            color: white;
+            border: none;
+            padding: 7px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .main-button:hover {
+            background-color: #9d4edd;
+        }
+
+        /* Modals Overlay (Common) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        /* View Idol Modal Content */
+        .modal-content {
+            background-color: #1a1333;
+            border: 1px solid #3c2a6d;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-content img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #7b2cbf;
+        }
+
+        .modal-content h2 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .modal-content .modal-role {
+            color: #b57edc;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .modal-content p {
+            color: #c9c2e0;
+            font-size: 0.92rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        /* Extra Details Grid inside View Modal */
+        .modal-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            background-color: #120d22;
+            border: 1px solid #2e2152;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .detail-item {
+            font-size: 0.85rem;
+            color: #b8b1d9;
+        }
+
+        .detail-item span {
+            color: #b57edc;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .close-btn {
+            background-color: #33265c;
+            color: #fff;
+            border: none;
+            padding: 8px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .close-btn:hover {
+            background-color: #4c388a;
+        }
+
+        /* Form Modal Content (Add) */
+        .form-modal-content {
+            background-color: #1a1333;
+            border: 1px solid #3c2a6d;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 450px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .form-modal-content h2 {
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            color: #fff;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: #b57edc;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            background-color: #100b1f;
+            border: 1px solid #33265c;
+            border-radius: 10px;
+            padding: 10px;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 80px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .cancel-btn {
+            background-color: transparent;
+            color: #a39bb8;
+            border: 1px solid #33265c;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .cancel-btn:hover {
+            background-color: #2b1d4d;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #100b1f;
+            border-top: 1px solid #1f1738;
+            text-align: center;
+            padding: 30px 20px;
+            color: #7d75a3;
+            font-size: 0.85rem;
+        }
+
+        footer h3 {
+            color: #fff;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        footer p {
+            margin-bottom: 5px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            .navbar nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .idol-card {
+                flex-direction: column;
+            }
+            .idol-image {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header class="navbar">
-
     <div class="logo">
         BEYOND<br>
         <span>THE BEAT</span>
@@ -24,6 +438,7 @@
         <a href="live.html">Live</a>
         <a href="idols.html" class="active">Idols</a>
         <a href="contacts.html">Contacts</a>
+        <button class="add-idol-nav-btn" onclick="openAddModal()">➕ Add Favorite Idol</button>
     </nav>
 
     <div class="search">
@@ -35,256 +450,356 @@
         >
         <button onclick="searchIdols()">🔍</button>
     </div>
-
 </header>
 
-
 <main class="idols-page">
-
     <div class="page-title">
         <h1>Idols</h1>
         <p>Meet the artists who inspire us beyond the beat.</p>
     </div>
 
-
     <div class="idol-grid" id="idolGrid">
-
         <!-- Idol 1 -->
-        <div class="idol-card">
-
-            <img
-                src="image/Kim Seung-min.jpg"
-                alt="Idol 1"
-                class="idol-image"
-            >
-
+        <div class="idol-card" data-name="Kim Seung-min">
+            <img src="image/Kim Seung-min.jpg" alt="Kim Seung-min" class="idol-image">
             <div class="idol-info">
-
-                <h2>Kim Seung-min</h2>
-
-                <p class="idol-role">
-                    Singer • MC
-                </p>
-
-                <p>
-                    South Korean singer and MC, 
-                    best known as the main vocalist of the boy group 
-                    Stray Kids under JYP Entertainment.
-                    
-                </p>
-
-                <button
-                    class="main-button"
-                    onclick="showIdol('Idol Name 1')"
-                >
-                    View Idol
-                </button>
-
+                <div>
+                    <h2>Kim Seung-min</h2>
+                    <p class="idol-role">Singer • MC</p>
+                    <p class="card-desc">South Korean singer and MC, best known as the main vocalist of the boy group Stray Kids under JYP Entertainment.</p>
+                </div>
+                <div>
+                    <button class="main-button" onclick="showIdol('Kim Seung-min')">View Idol</button>
+                </div>
             </div>
-
         </div>
-
 
         <!-- Idol 2 -->
-        <div class="idol-card">
-
-            <img
-                src="image/Daniela Avanzini.jpg"
-                alt="Idol 2"
-                class="idol-image"
-            >
-
+        <div class="idol-card" data-name="Daniela Avanzini">
+            <img src="image/Daniela Avanzini.jpg" alt="Daniela Avanzini" class="idol-image">
             <div class="idol-info">
-
-                <h2>Daniela Avanzini</h2>
-
-                <p class="idol-role">
-                    Singer • Dancer
-                </p>
-
-                <p>
-                    An American singer and dancer best known as
-                    a member of the global girl group Katseye, 
-                    formed via HYBE and Geffen Records’ 2023 reality show
-                  
-                </p>
-
-                <button
-                    class="main-button"
-                    onclick="showIdol('Idol Name 2')"
-                >
-                    View Idol
-                </button>
-
+                <div>
+                    <h2>Daniela Avanzini</h2>
+                    <p class="idol-role">Singer • Dancer</p>
+                    <p class="card-desc">An American singer and dancer best known as a member of the global girl group Katseye, formed via HYBE and Geffen Records’ 2023 reality show.</p>
+                </div>
+                <div>
+                    <button class="main-button" onclick="showIdol('Daniela Avanzini')">View Idol</button>
+                </div>
             </div>
-
         </div>
-
 
         <!-- Idol 3 -->
-        <div class="idol-card">
-
-            <img
-                src="image/IU.jpg"
-                alt="Idol 3"
-                class="idol-image"
-            >
-
+        <div class="idol-card" data-name="IU">
+            <img src="image/IU.jpg" alt="IU" class="idol-image">
             <div class="idol-info">
-
-                <h2>IU</h2>
-
-                <p class="idol-role">
-                    Vocalist • Performer
-                </p>
-
-                <p>
-                    Lee Ji-eun, known by her stage name IU, 
-                    is a South Korean singer-songwriter, actress,
-                    and philanthropist. Debuting at age 15 with the EP Lost and Found (2008), 
-                    she rose to fame with the hit Good Day (2010), ranked by Billboard as the top 
-                    K-pop song of the 2010s. 
-                </p>
-
-                <button
-                    class="main-button"
-                    onclick="showIdol('Idol Name 3')"
-                >
-                    View Idol
-                </button>
-
+                <div>
+                    <h2>IU</h2>
+                    <p class="idol-role">Vocalist • Performer</p>
+                    <p class="card-desc">Lee Ji-eun, known by her stage name IU, is a South Korean singer-songwriter, actress, and philanthropist. Debuting at age 15 with Lost and Found (2008)...</p>
+                </div>
+                <div>
+                    <button class="main-button" onclick="showIdol('IU')">View Idol</button>
+                </div>
             </div>
-
         </div>
-
 
         <!-- Idol 4 -->
-        <div class="idol-card">
-
-            <img
-                src="image/Jung Kook.jpg"
-                alt="Idol 4"
-                class="idol-image"
-            >
-
+        <div class="idol-card" data-name="Jung Kook">
+            <img src="image/Jung Kook.jpg" alt="Jung Kook" class="idol-image">
             <div class="idol-info">
-
-                <h2>Jung Kook</h2>
-
-                <p class="idol-role">
-                    Singer • Dancer
-                </p>
-
-                <p>
-                    Jeon Jung-kook, known professionally as Jung Kook, 
-                    is a South Korean singer and songwriter who rose to prominence 
-                    as the youngest member and main vocalist of BTS.
-                </p>
-
-                <button
-                    class="main-button"
-                    onclick="showIdol('Idol Name 4')"
-                >
-                    View Idol
-                </button>
-
+                <div>
+                    <h2>Jung Kook</h2>
+                    <p class="idol-role">Singer • Dancer</p>
+                    <p class="card-desc">Jeon Jung-kook, known professionally as Jung Kook, is a South Korean singer and songwriter who rose to prominence as the youngest member and main vocalist of BTS.</p>
+                </div>
+                <div>
+                    <button class="main-button" onclick="showIdol('Jung Kook')">View Idol</button>
+                </div>
             </div>
-
         </div>
-
 
         <!-- Idol 5 -->
-        <div class="idol-card">
-
-            <img
-                src="image/Jeongyeon.jpg"
-                alt="Idol 5"
-                class="idol-image"
-            >
-
+        <div class="idol-card" data-name="Jeongyeon">
+            <img src="image/Jeongyeon.jpg" alt="Jeongyeon" class="idol-image">
             <div class="idol-info">
-
-                <h2>Jeongyeon</h2>
-
-                <p class="idol-role">
-                    Artist • Performer
-                </p>
-
-                <p>
-                    Yu Jeong-yeon (Korean: 유정연; born 1 November 1996), 
-                    known mononymously as Jeongyeon, is a South Korean singer. 
-                    She is a member of Twice, a South Korean girl group formed 
-                    by JYP Entertainment.
-                </p>
-
-                <button
-                    class="main-button"
-                    onclick="showIdol('Idol Name 5')"
-                >
-                    View Idol
-                </button>
-
+                <div>
+                    <h2>Jeongyeon</h2>
+                    <p class="idol-role">Artist • Performer</p>
+                    <p class="card-desc">Yu Jeong-yeon (born 1 November 1996), known mononymously as Jeongyeon, is a South Korean singer. She is a member of Twice, a South Korean girl group formed by JYP Entertainment.</p>
+                </div>
+                <div>
+                    <button class="main-button" onclick="showIdol('Jeongyeon')">View Idol</button>
+                </div>
             </div>
-
         </div>
-
 
         <!-- Idol 6 -->
-        <div class="idol-card">
-
-            <img
-                src="image/Wonhee.webp"
-                alt="Idol 6"
-                class="idol-image"
-            >
-
+        <div class="idol-card" data-name="Wonhee">
+            <img src="image/Wonhee.webp" alt="Wonhee" class="idol-image">
             <div class="idol-info">
-
-                <h2>Wonhee</h2>
-
-                <p class="idol-role">
-                    Singer • Performer
-                </p>
-
-                <p>
-                    Lee Won-hee (Korean: 이원희; born June 26, 2007),
-                    known mononymously as Wonhee, is a South Korean singer. 
-                    She is a member of the girl group Illit under Belift Lab and Hybe, 
-                    formed through the 2023 survival show R U Next?. 
-                </p>
-
-                <button
-                    class="main-button"
-                    onclick="showIdol('Idol Name 6')"
-                >
-                    View Idol
-                </button>
-
+                <div>
+                    <h2>Wonhee</h2>
+                    <p class="idol-role">Singer • Performer</p>
+                    <p class="card-desc">Lee Won-hee (born June 26, 2007), known mononymously as Wonhee, is a South Korean singer. She is a member of the girl group Illit under Belift Lab and Hybe.</p>
+                </div>
+                <div>
+                    <button class="main-button" onclick="showIdol('Wonhee')">View Idol</button>
+                </div>
             </div>
-
         </div>
-
     </div>
-
 </main>
 
+<!-- Modal Pop-up: View Idol -->
+<div class="modal-overlay" id="idolModal" onclick="closeModalOnOutside(event)">
+    <div class="modal-content">
+        <img id="modalImg" src="" alt="Idol Image">
+        <h2 id="modalName"></h2>
+        <p id="modalRole" class="modal-role"></p>
+        
+        <div class="modal-details-grid">
+            <div class="detail-item">
+                <span>Favorite Color</span>
+                <p id="modalColor" style="margin:0; color:#fff;">-</p>
+            </div>
+            <div class="detail-item">
+                <span>Height</span>
+                <p id="modalHeight" style="margin:0; color:#fff;">-</p>
+            </div>
+            <div class="detail-item">
+                <span>Weight</span>
+                <p id="modalWeight" style="margin:0; color:#fff;">-</p>
+            </div>
+            <div class="detail-item">
+                <span>Fav Food / Country</span>
+                <p id="modalFood" style="margin:0; color:#fff;">-</p>
+            </div>
+        </div>
+
+        <p id="modalDesc" style="margin-bottom: 25px;"></p>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<!-- Modal Pop-up: Add New Idol Form -->
+<div class="modal-overlay" id="addIdolModal" onclick="closeAddModalOnOutside(event)">
+    <div class="form-modal-content">
+        <h2>Add Favorite Idol</h2>
+        <form id="addIdolForm" onsubmit="addNewIdol(event)">
+            <div class="form-group">
+                <label for="newName">Idol Name</label>
+                <input type="text" id="newName" placeholder="e.g. Jennie Kim" required>
+            </div>
+            <div class="form-group">
+                <label for="newRole">Role / Profession</label>
+                <input type="text" id="newRole" placeholder="e.g. Rapper • Vocalist" required>
+            </div>
+            <div class="form-group">
+                <label for="newImg">Image URL or Path</label>
+                <input type="text" id="newImg" placeholder="e.g. image/jennie.jpg" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="newColor">Favorite Color</label>
+                    <input type="text" id="newColor" placeholder="e.g. Black, Pink">
+                </div>
+                <div class="form-group">
+                    <label for="newHeight">Height</label>
+                    <input type="text" id="newHeight" placeholder="e.g. 163 cm">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="newWeight">Weight</label>
+                    <input type="text" id="newWeight" placeholder="e.g. 45 kg">
+                </div>
+                <div class="form-group">
+                    <label for="newFood">Fav Food / Country</label>
+                    <input type="text" id="newFood" placeholder="e.g. Mandu / South Korea">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="newDesc">Biography / Information</label>
+                <textarea id="newDesc" placeholder="Write comprehensive info/bio about the idol..." required></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="cancel-btn" onclick="closeAddModal()">Cancel</button>
+                <button type="submit" class="main-button">Save Idol</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <footer>
-
     <h3>Beyond The Beat</h3>
-
-    <p>
-        Music • Live • Idols • Entertainment
-    </p>
-
-    <p>
-        © 2026 Beyond The Beat
-    </p>
-
+    <p>Music • Live • Idols • Entertainment</p>
+    <p>© 2026 Beyond The Beat</p>
 </footer>
 
+<script>
+    // Database of Idol Information with Additional Attributes
+    const idolsData = {
+        "Kim Seung-min": {
+            role: "Singer • MC",
+            desc: "Kim Seung-min is a talented South Korean singer and MC. Best known as the main vocalist of the globally popular boy group Stray Kids under JYP Entertainment, he is celebrated for his sweet vocal tone and charming hosting skills.",
+            img: "image/Kim Seung-min.jpg",
+            color: "Blue, White",
+            height: "178 cm",
+            weight: "65 kg",
+            food: "Egg Sushi / South Korea"
+        },
+        "Daniela Avanzini": {
+            role: "Singer • Dancer",
+            desc: "An American singer and dancer recognized globally as a member of Katseye, formed via HYBE and Geffen Records’ 2023 reality show 'The Debut: Dream Academy'. She brings incredible stage presence and performance versatility.",
+            img: "image/Daniela Avanzini.jpg",
+            color: "Red, Black",
+            height: "168 cm",
+            weight: "52 kg",
+            food: "Pasta / United States"
+        },
+        "IU": {
+            role: "Vocalist • Performer",
+            desc: "Lee Ji-eun, known professionally as IU, is a legendary South Korean singer-songwriter, actress, and philanthropist. Debuting at age 15, she has established an unmatched legacy with hit tracks like 'Good Day' and critically acclaimed albums.",
+            img: "image/IU.jpg",
+            color: "Purple, Yellow",
+            height: "161 cm",
+            weight: "44 kg",
+            food: "Sweet Potato / South Korea"
+        },
+        "Jung Kook": {
+            role: "Singer • Dancer",
+            desc: "Jeon Jung-kook is a powerhouse South Korean singer, songwriter, and global icon who rose to immense international prominence as the youngest member and main vocalist of BTS, later achieving massive global solo success.",
+            img: "image/Jung Kook.jpg",
+            color: "Black, Red",
+            height: "179 cm",
+            weight: "70 kg",
+            food: "Pork Soup Rice / South Korea"
+        },
+        "Jeongyeon": {
+            role: "Artist • Performer",
+            desc: "Yu Jeong-yeon is a prominent South Korean singer known for her stability, vocal color, and depth as a member of the elite girl group Twice under JYP Entertainment.",
+            img: "image/Jeongyeon.jpg",
+            color: "Black, Purple",
+            height: "168 cm",
+            weight: "49 kg",
+            food: "Tteokbokki / South Korea"
+        },
+        "Wonhee": {
+            role: "Singer • Performer",
+            desc: "Lee Won-hee is a rising South Korean star who captured hearts and secured her spot as a member of the girl group Illit under Belift Lab and HYBE, following her standout journey on the survival show 'R U Next?'.",
+            img: "image/Wonhee.webp",
+            color: "White, Sky Blue",
+            height: "162 cm",
+            weight: "43 kg",
+            food: "Bread / South Korea"
+        }
+    };
 
-<script src="script.js"></script>
+    // Open/Close View Idol Modal
+    function showIdol(idolName) {
+        const modal = document.getElementById('idolModal');
+        const data = idolsData[idolName];
+
+        if (data) {
+            document.getElementById('modalName').innerText = idolName;
+            document.getElementById('modalRole').innerText = data.role;
+            document.getElementById('modalDesc').innerText = data.desc;
+            document.getElementById('modalImg').src = data.img;
+            
+            // Populate additional information fields
+            document.getElementById('modalColor').innerText = data.color || 'Not specified';
+            document.getElementById('modalHeight').innerText = data.height || 'Not specified';
+            document.getElementById('modalWeight').innerText = data.weight || 'Not specified';
+            document.getElementById('modalFood').innerText = data.food || 'Not specified';
+
+            modal.style.display = 'flex';
+        }
+    }
+
+    function closeModal() {
+        document.getElementById('idolModal').style.display = 'none';
+    }
+
+    function closeModalOnOutside(event) {
+        const modal = document.getElementById('idolModal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // Open/Close Add Idol Modal
+    function openAddModal() {
+        document.getElementById('addIdolModal').style.display = 'flex';
+    }
+
+    function closeAddModal() {
+        document.getElementById('addIdolModal').style.display = 'none';
+        document.getElementById('addIdolForm').reset();
+    }
+
+    function closeAddModalOnOutside(event) {
+        const modal = document.getElementById('addIdolModal');
+        if (event.target === modal) {
+            closeAddModal();
+        }
+    }
+
+    // Handle Form Submission: Add New Idol
+    function addNewIdol(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('newName').value.trim();
+        const role = document.getElementById('newRole').value.trim();
+        const img = document.getElementById('newImg').value.trim();
+        const color = document.getElementById('newColor').value.trim();
+        const height = document.getElementById('newHeight').value.trim();
+        const weight = document.getElementById('newWeight').value.trim();
+        const food = document.getElementById('newFood').value.trim();
+        const desc = document.getElementById('newDesc').value.trim();
+
+        idolsData[name] = { role, desc, img, color, height, weight, food };
+
+        const grid = document.getElementById('idolGrid');
+        const newCard = document.createElement('div');
+        newCard.className = 'idol-card';
+        newCard.setAttribute('data-name', name);
+
+        let previewDesc = desc.length > 110 ? desc.substring(0, 110) + '...' : desc;
+
+        newCard.innerHTML = `
+            <img src="${img}" alt="${name}" class="idol-image" onerror="this.src='https://via.placeholder.com/130?text=No+Image'">
+            <div class="idol-info">
+                <div>
+                    <h2>${name}</h2>
+                    <p class="idol-role">${role}</p>
+                    <p class="card-desc">${previewDesc}</p>
+                </div>
+                <div>
+                    <button class="main-button" onclick="showIdol('${name}')">View Idol</button>
+                </div>
+            </div>
+        `;
+
+        grid.appendChild(newCard);
+        closeAddModal();
+    }
+
+    // Search Filtering Function
+    function searchIdols() {
+        let input = document.getElementById('idolSearchInput').value.toLowerCase();
+        let cards = document.querySelectorAll('.idol-card');
+
+        cards.forEach(card => {
+            let name = card.getAttribute('data-name').toLowerCase();
+            if (name.includes(input)) {
+                card.style.display = "flex";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
